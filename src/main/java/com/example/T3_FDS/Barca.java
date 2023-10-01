@@ -1,4 +1,4 @@
-package com.bcopstein;
+package com.example.T3_FDS;
 
 import java.util.regex.Pattern;
 
@@ -33,7 +33,8 @@ public class Barca {
      */
     public int ocupaLugar(String assentoInformado){
         // Verifica se é um assento valido
-        if (Pattern.matches("[F][0-8]{2}[A][0-9]{2}", assentoInformado) == false){
+        if (Pattern.matches("[F][0-9][0-9][A][0-9][0-9]", assentoInformado) == false){
+            System.out.println("Invalido");
             return 0; 
         }
         int fila = Integer.parseInt(assentoInformado.substring(1,3));
@@ -45,19 +46,19 @@ public class Barca {
             return 0;
         }
         // Verifica se o assento já não está ocupado
-        if (assentos[fila][assento] == true){
-            return 3;
+        if (assentos[fila-1][assento-1] == true){
+            return 1;
         }
         // Se tem até 100 passageiros, verifica se fila <= 20
         if (qtdadeAssentosOcupados <= 100 && fila > 20){
-            return 1;
+            return 2;
         }
         // Se tem mais de 100 e até de 200 passageiros, verifica se fila >= 40
         if (qtdadeAssentosOcupados > 100 && qtdadeAssentosOcupados <= 200 && fila < 40){
             return 2;
         }
         // Ocupa o assento
-        assentos[fila][assento] = true;
+        assentos[fila-1][assento-1] = true;
         qtdadeAssentosOcupados++;
         return 3;
     }
