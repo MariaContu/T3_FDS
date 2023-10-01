@@ -42,9 +42,9 @@ public class BarcaTest {
 
     @Test
     public void testOcupado(){
-        assertEquals(1, barca.ocupaLugar("F02A10")); // Assento sendo ocupado
-        assertEquals(1, barca.ocupaLugar("F02A10")); // Assento já ocupado on-point
-        assertEquals(1, barca.ocupaLugar("F02A11")); // off-point
+        barca.ocupaLugarSemVerificacao(2, 10); // Assento sendo ocupado (off-point)
+        assertEquals(1, barca.ocupaLugar("F02A10")); // Assento já ocupado (on-point)
+        assertEquals(3, barca.ocupaLugar("F02A11")); // 
     }
 
     @Test

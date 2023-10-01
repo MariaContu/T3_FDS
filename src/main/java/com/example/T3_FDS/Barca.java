@@ -21,7 +21,7 @@ public class Barca {
 
     // Método auxiliar projetado para facilitar testes
     public void ocupaLugarSemVerificacao(int fila,int assento){
-        assentos[fila][assento] = true;
+        assentos[fila-1][assento-1] = true;
         qtdadeAssentosOcupados++;
     }
 
