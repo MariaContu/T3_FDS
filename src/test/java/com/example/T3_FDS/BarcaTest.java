@@ -118,6 +118,13 @@ public class BarcaTest {
     public void testaValorOnPoint()    {
         assertEquals(3,barca.ocupaLugar("F01A01"));
         assertEquals(3,barca.ocupaLugar("F01A20"));
+
+        for(int i = 0; i < 11; i++){
+             for(int j = 0; j < 11; j++){
+                barca.ocupaLugarSemVerificacao(i+1, j+1);
+             }
+         }
+
         assertEquals(3,barca.ocupaLugar("F60A01"));
         assertEquals(3,barca.ocupaLugar("F60A20"));
     }
